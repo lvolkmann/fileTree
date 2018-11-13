@@ -5,6 +5,14 @@
 #ifndef FILETREE_FOLDER_H
 #define FILETREE_FOLDER_H
 
+#include<string>
+#include<list>
+using namespace std;
+
+struct File {
+	string name;
+	int size;
+};
 #include "RBTree.h"
 #include "File.h"
 
