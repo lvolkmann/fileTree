@@ -7,15 +7,14 @@
 
 #include<string>
 #include<list>
+#include "RBTree.h"
+
 using namespace std;
 
 struct File {
 	string name;
 	int size;
 };
-#include "RBTree.h"
-#include "File.h"
-
 class Folder {
 public:
     list<Folder*> childFolders;
