@@ -8,8 +8,8 @@
 
 class Folder {
 private:
-    List<*Folder> childFolders;
-    RBTree<File> childFiles;
+    //List<*Folder> childFolders;
+    //RBTree<File> childFiles;
 
 };
 

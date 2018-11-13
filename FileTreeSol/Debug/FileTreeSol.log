@@ -1,0 +1,11 @@
+﻿  Folder.cpp
+c:\users\landon\source\repos\filetree\folder.h(11): error C2143: syntax error: missing ';' before '<'
+c:\users\landon\source\repos\filetree\folder.h(11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\landon\source\repos\filetree\folder.h(11): error C2238: unexpected token(s) preceding ';'
+c:\users\landon\source\repos\filetree\folder.h(12): error C2143: syntax error: missing ';' before '<'
+c:\users\landon\source\repos\filetree\folder.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\landon\source\repos\filetree\folder.h(12): error C2238: unexpected token(s) preceding ';'
+  main.cpp
+c:\users\landon\source\repos\filetree\main.cpp(9): error C2065: 'cout': undeclared identifier
+c:\users\landon\source\repos\filetree\main.cpp(11): error C2143: syntax error: missing ';' before 'return'
+  Generating Code...
