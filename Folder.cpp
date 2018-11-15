@@ -15,23 +15,36 @@ vector<std::string> parsePath(string path) {
     return result;
 }
 
+Folder* Folder::traverseDirectory(string path) {
+    // Returns the pointer to the folder directory
 
-void Folder::add_folder(string path, string folder_name) {
     vector<std::string> pathVector = parsePath(path);
-    int pathVectorInc = 0;
+    Folder* currentDir = this;
+    bool folderFound = false;
 
-    for (list<Folder*>::iterator it; it != childFolders.end(); it++) {
-        // while you're not in the right folder to add to
-        while (pathVectorInc < pathVector.size()) {
-            // Locate folder in root's list of folders
-            if (pathVector[0] == (*it)->name) {
-
-            } else {
-                // Create Folder and child folders
+    // Iterate through path
+    for (int i = 0; i < pathVector.size()-1; i++) {
+        // Check all folders in current path
+        for (auto it = currentDir->childFolders.begin(); it != currentDir->childFolders.end(); it++) {
+            // If the name matches, set that as the new folder
+            if (pathVector[i] == (*it)->name) {
+                currentDir  = *it;
+                folderFound = true;
+                break;
             }
         }
+
+        if (!folderFound) {
+            throw ("Folder not found");
+        }
+        folderFound = false;
     }
 
+    return currentDir;
+}
+
+
+void Folder::add_folder(string path, string folder_name) {
 
 }
 

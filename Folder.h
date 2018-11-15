@@ -22,6 +22,7 @@ public:
     string name;
     int size;
 
+    Folder* traverseDirectory(string path);
     void add_folder(string path, string folder_name);
     void delete_folder(string path, string folder_name);
     void add_file(string path, string file_name, int size);
