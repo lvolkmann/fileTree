@@ -14,6 +14,17 @@ using namespace std;
 struct File {
 	string name;
 	int size;
+
+	//pretty sure these are also needed
+	File *left, *right, *parent;
+	
+	//constructor
+	File(int data)
+	{
+		this->name = name;
+		left = right = parent = NULL;
+	}
+
 };
 class Folder {
 public:
