@@ -43,7 +43,6 @@ Folder* Folder::traverseDirectory(string path) {
     return currentDir;
 }
 
-
 void Folder::add_folder(string path, string folder_name) {
 
     /*
@@ -53,20 +52,27 @@ void Folder::add_folder(string path, string folder_name) {
 
 
     if(CurrentDir -> left == NULL){
-    CurrentDir ->left = insert(node->left, folder_name);
+    CurrentDir ->left = insert(Folder ->left, folder_name);
     }
 
 
     if(CurrentDir -> left == NULL && CurrentDir -> right != NULL){
-    CurrentDir ->right = insert(node->right, folder_name);
+    CurrentDir ->right = insert(Folder->right, folder_name);
     }
 
      //still need to figure what to do if both are full
+
+     if(CurrentDir -> left == NULL && CurrentDir -> right == NULL){
+     CurrentDir -> left -> left = insert(Folder -> left -> left, folder_name);
+     }
+
     */
 }
 
 void Folder::delete_folder(string path, string folder_name)
 {
+    //will need to have a way to delete all files within as well
+
 }
 
 void Folder::add_file(string path, string file_name, int size)
@@ -75,6 +81,8 @@ void Folder::add_file(string path, string file_name, int size)
 
 File Folder::get_file(string path, string file_name)
 {
+
+
     return File();
 }
 
