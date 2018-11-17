@@ -46,6 +46,23 @@ Folder* Folder::traverseDirectory(string path) {
 
 void Folder::add_folder(string path, string folder_name) {
 
+    /*
+
+     //Goes to directory
+    Folder* CurrentDir = traverseDirectory(path);
+
+
+    if(CurrentDir -> left == NULL){
+    CurrentDir ->left = insert(node->left, folder_name);
+    }
+
+
+    if(CurrentDir -> left == NULL && CurrentDir -> right != NULL){
+    CurrentDir ->right = insert(node->right, folder_name);
+    }
+
+     //still need to figure what to do if both are full
+    */
 }
 
 void Folder::delete_folder(string path, string folder_name)
