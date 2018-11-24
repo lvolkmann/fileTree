@@ -5,6 +5,7 @@
 #include "Folder.h"
 
 
+
 vector<std::string> parsePath(string path) {
     std::vector<std::string> result;
     std::stringstream ss(path);

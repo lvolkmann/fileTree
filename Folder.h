@@ -30,6 +30,7 @@ struct File
     }
 };
 
+
 class Folder {
 public:
     list<Folder*> childFolders;

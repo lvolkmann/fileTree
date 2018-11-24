@@ -203,6 +203,7 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
         }
     }
 
+
     root->color = BLACK;
 }
 
