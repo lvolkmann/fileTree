@@ -79,19 +79,33 @@ void Folder::delete_folder(string path, string folder_name)
 
 void Folder::add_file(string path, string file_name, int size)
 {
+    //follows path to current folder
+    Folder* CurrentDir = traverseDirectory(path);
+
+    //insert the file
+    CurrentDir->childFiles.insert(size, file_name);
+
+    //update parent folder size
+    CurrentDir->size += size;
 }
-
-
 
 list<File> Folder::get_files(string path, string file_name)
 {
+    //will have to search all Folders and files at end of path
+
     return list<File>();
 }
 
 void Folder::delete_file(string path, string file_name)
 {
+
+
 }
 
 File Folder::get_file(string path, string file_name) {
+
+
+
+
     return File();
 }

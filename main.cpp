@@ -16,7 +16,11 @@ int main() {
     /*ASSUMPTIONS
      * FILE NAMES MUST BE UNIQUE
      * FILE NAMES CANNOT CONTAIN NUMBERS/SYMBOLS
+     * FILE NAMES ARE CASE SENSITIVE
      */
+
+
+
 
 
     //orders the files by name
