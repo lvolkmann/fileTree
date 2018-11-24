@@ -4,6 +4,7 @@
 
 #include "Folder.h"
 
+
 vector<std::string> parsePath(string path) {
     std::vector<std::string> result;
     std::stringstream ss(path);
@@ -79,12 +80,7 @@ void Folder::add_file(string path, string file_name, int size)
 {
 }
 
-File Folder::get_file(string path, string file_name)
-{
 
-
-    return File();
-}
 
 list<File> Folder::get_files(string path, string file_name)
 {
@@ -93,4 +89,8 @@ list<File> Folder::get_files(string path, string file_name)
 
 void Folder::delete_file(string path, string file_name)
 {
+}
+
+File Folder::get_file(string path, string file_name) {
+    return File();
 }

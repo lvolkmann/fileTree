@@ -5,13 +5,13 @@
 #include "RBTree.h"
 
 // A recursive function to do level order traversal
-void inorderHelper(Node *root)
+void inorderHelper(Node* root)
 {
     if (root == NULL)
         return;
 
     inorderHelper(root->left);
-    cout << root->data << "  ";
+    cout << root->name << "  ";
     inorderHelper(root->right);
 }
 
@@ -24,12 +24,15 @@ Node* BSTInsert(Node* root, Node *pt)
         return pt;
 
     /* Otherwise, recur down the tree */
-    if (pt->data < root->data)
+
+    int alph = pt->name.compare(root->name);
+
+    if (alph < 0)
     {
         root->left  = BSTInsert(root->left, pt);
         root->left->parent = root;
     }
-    else if (pt->data > root->data)
+    else if (alph > 0)
     {
         root->right = BSTInsert(root->right, pt);
         root->right->parent = root;
@@ -51,7 +54,7 @@ void levelOrderHelper(Node *root)
     while (!q.empty())
     {
         Node *temp = q.front();
-        cout << temp->data << "  ";
+        cout << temp-> size << "  ";
         q.pop();
 
         if (temp->left != NULL)
@@ -204,9 +207,8 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
 }
 
 // Function to insert a new node with given data
-void RBTree::insert(const int &data)
-{
-    Node *pt = new Node(data);
+void RBTree::insert(const int &size, const string &name){
+    Node *pt = new Node(size, name);
 
     // Do a normal BST insert
     root = BSTInsert(root, pt);

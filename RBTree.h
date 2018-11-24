@@ -16,14 +16,16 @@ enum Color {RED, BLACK};
 
 struct Node
 {
-    int data;
+    int size;
+    string name;
     bool color;
     Node *left, *right, *parent;
 
     // Constructor
-    Node(int data)
+    Node(int size, string name)
     {
-        this->data = data;
+        this->size = size;
+        this->name = name;
         left = right = parent = NULL;
     }
 };
@@ -40,7 +42,7 @@ protected:
 public:
     // Constructor
     RBTree() { root = NULL; }
-    void insert(const int &n);
+    void insert(const int &size, const string &name);
     void inorder();
     void levelOrder();
 };

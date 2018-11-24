@@ -11,27 +11,32 @@
 
 using namespace std;
 
-struct File {
-	string name;
-	int size;
+struct File
+{
+    int size;
+    string name;
+    File *left, *right, *parent;
 
-	//pretty sure these are also needed
-	File *left, *right, *parent;
-	
-	//constructor
-	File(int data)
-	{
-		this->name = name;
-		left = right = parent = NULL;
-	}
-
+    // Constructor
+    File(){
+        size = 0;
+        name = "";
+    }
+    File(int size, string name)
+    {
+        this->size = size;
+        this->name = name;
+        left = right = parent = NULL;
+    }
 };
+
 class Folder {
 public:
     list<Folder*> childFolders;
     RBTree childFiles;
     string name;
     int size;
+
 
     Folder* traverseDirectory(string path);
     void add_folder(string path, string folder_name);
@@ -40,7 +45,6 @@ public:
     File get_file(string path, string file_name);
     list<File> get_files(string path, string file_name);
     void delete_file(string path, string file_name);
-
 };
 
 
