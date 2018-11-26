@@ -73,7 +73,7 @@ int main() {
 
     cout << "Delete /child3/c.txt file" << endl;
     // DOESN'T WORK CURRENTLY
-    //root->delete_file("/child3/", "c.txt");
+    root->delete_file("/child3/", "c.txt");
 
     cout << "Get files from child3:" << endl;
     files = root->get_files("/child3/");
@@ -89,31 +89,6 @@ int main() {
         cout << (*it)->name << ", ";
     }
 
-
-
-    //orders the files by name
-//    RBTree tree;
-//    tree.insertValue("root", 0);
-//    tree.insertValue("quick", 5);
-//    tree.insertValue("the", 2);
-//    tree.insertValue("fox", 4);
-//    tree.insertValue("brown", 6);
-//
-//    cout << "Inoder Traversal of Created Tree\n";
-//    tree.inorder();
-//
-//
-//    Node tmp = tree.getFile("brown");
-//
-//    cout << "File Name: " << tmp.name << endl;
-//
-//    tree.inorder();
-//
-//    list<Node> files = tree.getFiles();
-//
-//    for(auto it = files.begin(); it != files.end(); it++) {
-//        cout << it->name << endl;
-//    }
 
 
 

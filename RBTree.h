@@ -7,8 +7,9 @@
 
 #include <string>
 #include <list>
+using namespace std;
 
-enum Color { RED, BLACK, DOUBLE_BLACK };
+enum Color { RED, BLACK};
 
 struct Node
 {
@@ -40,21 +41,21 @@ protected:
     void rotateLeft(Node *&);
     void rotateRight(Node *&);
     void fixInsertRBTree(Node *&);
-    void fixDeleteRBTree(Node *&);
     void inorderBST(Node *&);
     void preorderBST(Node *&);
     int getColor(Node *&);
     void setColor(Node *&, int);
+    void Transplant(Node *dest, Node *src);
     Node *minValueNode(Node *&);
-    Node *maxValueNode(Node *&);
+    Node* maxValueNode(Node *&node);
     Node* insertBST(Node *&, Node *&);
-    Node* deleteBST(Node *&, std::string);
+    void deleteBST(string name);
+    void fixDeleteRBTree(Node *&node);
     int getBlackHeight(Node *);
 public:
     RBTree();
     void insertValue(std::string, int);
     void deleteValue(std::string);
-    void merge(RBTree);
     void inorder();
     void preorder();
     Node getFile(std::string name);
