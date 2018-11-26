@@ -117,11 +117,11 @@
   <ItemGroup>
     <ClCompile Include="..\Folder.cpp" />
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\RBTree2.cpp" />
+    <ClCompile Include="..\RBTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Folder.h" />
-    <ClInclude Include="..\RBTree2.h" />
+    <ClInclude Include="..\RBTree.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\ProjectGuide.txt" />

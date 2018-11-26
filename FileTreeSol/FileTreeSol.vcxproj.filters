@@ -21,7 +21,7 @@
     <ClCompile Include="..\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\RBTree2.cpp">
+    <ClCompile Include="..\RBTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="..\Folder.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\RBTree2.h">
+    <ClInclude Include="..\RBTree.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

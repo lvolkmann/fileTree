@@ -328,6 +328,8 @@ int RBTree::getBlackHeight(Node *node) {
 void RBTree::merge(RBTree rbTree2) {
     string temp;
     Node *c, *temp_ptr;
+	temp_ptr = nullptr;
+	c = nullptr;
     Node *root1 = root;
     Node *root2 = rbTree2.root;
     int initialblackheight1 = getBlackHeight(root1);
