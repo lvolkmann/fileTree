@@ -7,10 +7,12 @@
 #include "Folder.h"
 #include <algorithm>
 
+//constructor
 Folder::Folder(string name) {
     this->name = name;
 }
 
+//sorts the path by '/' to help with traversal
 vector<std::string> parsePath(string path) {
     std::vector<std::string> result;
     std::stringstream ss(path);
@@ -51,6 +53,7 @@ Folder* Folder::traverseDirectory(string path) {
     return currentDir;
 }
 
+//adds folder in current directory
 void Folder::add_folder(string path, string folder_name) {
 
      //Goes to directory

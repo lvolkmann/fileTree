@@ -114,83 +114,11 @@ void RBTree::fixInsertRBTree(Node *&ptr) {
     }
     setColor(root, BLACK);
 }
-/*
-void RBTree::fixDeleteRBTree(Node *&node) {
-    Node *s;
-    while(node!=root&&node->color== BLACK)
-    {
-        if(node->parent->left==node)
-        {
-            s=node->parent->right;
-            if(s->color== RED)
-            {
-                s->color= BLACK;
-                node->parent->color= RED;
-                rotateLeft(node->parent);
-                s=node->parent->right;
-            }
-            if(s->right->color== BLACK && s->left->color==BLACK)
-            {
-                s->color= RED;
-                node=node->parent;
-            }
-            else
-            {
-                if(s->right->color== BLACK)
-                {
-                    s->left->color== BLACK;
-                    s->color= RED;
-                    rotateRight(s);
-                    s= node->parent->right;
-                }
-                s->color= node->parent->color;
-                node->parent->color= BLACK;
-                s->right->color= BLACK;
-                rotateLeft(node->parent);
-                node=root;
-            }
-        }
-        else
-        {
-            s=node->parent->left;
-            if(s->color== RED)
-            {
-                s->color= BLACK;
-                node->parent->color=RED;
-                rotateRight(node->parent);
-                s=node->parent->left;
-            }
-            if(s->left->color== BLACK && s->right->color== BLACK)
-            {
-                s->color= RED;
-                node=node->parent;
-            }
-            else
-            {
-                if(s->left->color== BLACK)
-                {
-                    s->right->color= BLACK;
-                    s->color= RED;
-                    rotateLeft(s);
-                    s=node->parent->left;
-                }
-                s->color= node->parent->color;
-                node->parent->color= BLACK;
-                s->left->color= BLACK;
-                rotateRight(node->parent);
-                node=root;
-            }
-        }
-        node->color= BLACK;
-        root->color= BLACK;
-    }
-}
-*/
 
-
-// deletes the given node based off of code from https://gist.github.com/nandor/9249431
+// deletes the given node, based off of code from https://gist.github.com/nandor/9249431
 void RBTree::deleteBST(string name) {
         Node *node = root;
+        //traverses down the tree
         while (node)
         {
             if (node->name > name)
@@ -206,14 +134,17 @@ void RBTree::deleteBST(string name) {
                 break;
             }
         }
-
+        //checks if node is NULL or has the wrong name
         if (!node || node->name != name)
         {
             return;
         }
 
         Node *sub, *old;
+        //Had to static cast since old->color was an int
         Color original = static_cast<Color>(old->color);
+
+        //switches the nodes to prepare for deletion
         if (!node->left)
         {
             Transplant(node, sub = node->right);
@@ -246,6 +177,8 @@ void RBTree::deleteBST(string name) {
         }
 
         delete node;
+
+        //the part that fixes the tree after deleting the node
         if (original == BLACK)
         {
             bool side;
@@ -312,10 +245,12 @@ void RBTree::deleteBST(string name) {
         }
     }
 
+//public function that calls the protected delete function
 void RBTree::deleteValue(string name) {
     deleteBST(name);
-    Node *node;
 }
+
+//in order traversal
 void RBTree::inorderBST(Node *&ptr) {
     if (ptr == nullptr)
         return;
@@ -326,6 +261,7 @@ void RBTree::inorderBST(Node *&ptr) {
 void RBTree::inorder() {
     inorderBST(root);
 }
+// pre order traversal
 void RBTree::preorderBST(Node *&ptr) {
     if (ptr == nullptr)
         return;
@@ -337,6 +273,8 @@ void RBTree::preorder() {
     preorderBST(root);
     cout << "-------" << endl;
 }
+
+//finds the bottom left/minimum node
 Node *RBTree::minValueNode(Node *&node) {
     Node *ptr = node;
     while (ptr->left != nullptr)
@@ -344,12 +282,14 @@ Node *RBTree::minValueNode(Node *&node) {
     return ptr;
 }
 
+//finds the bottom right/maximum node
 Node* RBTree::maxValueNode(Node *&node) {
     Node *ptr = node;
     while (ptr->right != nullptr)
         ptr = ptr->right;
     return ptr;
 }
+//finds the height of the black nodes
 int RBTree::getBlackHeight(Node *node) {
     int blackheight = 0;
     while (node != nullptr) {
@@ -359,10 +299,8 @@ int RBTree::getBlackHeight(Node *node) {
     }
     return blackheight;
 }
-// Test case 1 : 5 2 9 1 6 8 0 20 30 35 40 50 0
-// Test case 2 : 3 0 5 0
-// Test case 3 : 2 1 3 0 8 9 4 5 0
 
+//functions to get the files
 Node* file;
 Node* getFile_helper(Node* top, string name) {
     if (top == nullptr)
@@ -398,6 +336,7 @@ std::list<Node> RBTree::getFiles() {
     getFiles_helper(root, files);
     return files;
 }
+//deletes the tree
 void clearTree_helper(Node* top) {
     if (top == nullptr) return;
     clearTree_helper(top->left);
@@ -408,6 +347,7 @@ void RBTree::clearTree() {
     clearTree_helper(root);
 }
 
+//switches the nodes around for deletion
 void RBTree::Transplant(Node *dest, Node *src) {
     if (dest->parent == NULL)
     {

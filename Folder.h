@@ -12,7 +12,7 @@
 
 using namespace std;
 
-
+//Folder class
 class Folder {
 public:
     list<Folder*> childFolders;

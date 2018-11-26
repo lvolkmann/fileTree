@@ -10,23 +10,16 @@ using namespace std;
 int main() {
 
 
-    // Initialize root folder
-
-    // Execute operations on the folder
-
     /*ASSUMPTIONS
-     * FILE NAMES MUST BE UNIQUE
-     * FILE NAMES CANNOT CONTAIN NUMBERS/SYMBOLS
      * FILE NAMES ARE CASE SENSITIVE
      */
-
 
     Folder* root = new Folder("");
 
     // ADD FOLDERS AND FILES
 
     root->add_file("/", "a.txt", 1);
-    root->add_file("/", "b.txt", 2);
+    root->add_file("/", "ab.txt", 2);
     root->add_file("/", "c.txt", 3);
 
     root->add_folder("/", "child1");
@@ -69,10 +62,7 @@ int main() {
     Node tmp = root->get_file("/child1/", "c.txt");
     cout << "File Name: " << tmp.name << endl << endl;
 
-    // DELETE FOLDER/FILE
-
     cout << "Delete /child3/c.txt file" << endl;
-    // DOESN'T WORK CURRENTLY
     root->delete_file("/child3/", "c.txt");
 
     cout << "Get files from child3:" << endl;
@@ -88,9 +78,6 @@ int main() {
     for(auto it = root->childFolders.begin(); it != root->childFolders.end(); it++) {
         cout << (*it)->name << ", ";
     }
-
-
-
 
 
     return 0;

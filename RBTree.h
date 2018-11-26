@@ -9,8 +9,10 @@
 #include <list>
 using namespace std;
 
+//colors for the RBTree
 enum Color { RED, BLACK};
 
+//Node structure
 struct Node
 {
     int size;
@@ -18,7 +20,7 @@ struct Node
     int color;
     Node *left, *right, *parent;
 
-    // Constructor
+    // Constructors
     Node(){
         size = 0;
         name = "";
@@ -29,10 +31,8 @@ struct Node
         this->name = name;
         left = right = parent = NULL;
     }
-
-    //explicit Node(std::string, int);
 };
-
+//RBTree class
 class RBTree
 {
 private:
