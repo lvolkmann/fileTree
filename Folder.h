@@ -7,28 +7,10 @@
 
 #include<string>
 #include<list>
+#include<vector>
 #include "RBTree.h"
 
 using namespace std;
-
-struct File
-{
-    int size;
-    string name;
-    File *left, *right, *parent;
-
-    // Constructor
-    File(){
-        size = 0;
-        name = "";
-    }
-    File(int size, string name)
-    {
-        this->size = size;
-        this->name = name;
-        left = right = parent = NULL;
-    }
-};
 
 
 class Folder {
@@ -38,13 +20,13 @@ public:
     string name;
     int size;
 
-
+    Folder(string name);
     Folder* traverseDirectory(string path);
     void add_folder(string path, string folder_name);
-    void delete_folder(string path, string folder_name);
+    void delete_folder(string path);
     void add_file(string path, string file_name, int size);
-    File get_file(string path, string file_name);
-    list<File> get_files(string path, string file_name);
+    Node get_file(string path, string file_name);
+    list<Node> get_files(string path);
     void delete_file(string path, string file_name);
 };
 

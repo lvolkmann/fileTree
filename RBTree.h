@@ -1,52 +1,66 @@
 //
-// Created by caskla on 11/13/18.
+// Red Black Tree Definition
 //
 
-#ifndef FILETREE_RBTREE_H
-#define FILETREE_RBTREE_H
+#ifndef RED_BLACK_TREE_RBTREE_H
+#define RED_BLACK_TREE_RBTREE_H
 
-/** C++ implementation for Red-Black Tree Insertion
-   This code is adopted from the code provided by
-   Dinesh Khandelwal in comments **/
+#include <string>
+#include <list>
 
-#include <bits/stdc++.h>
-using namespace std;
-
-enum Color {RED, BLACK};
+enum Color { RED, BLACK, DOUBLE_BLACK };
 
 struct Node
 {
     int size;
-    string name;
-    bool color;
+    std::string name;
+    int color;
     Node *left, *right, *parent;
 
     // Constructor
-    Node(int size, string name)
+    Node(){
+        size = 0;
+        name = "";
+    }
+    Node(std::string name, int size)
     {
         this->size = size;
         this->name = name;
         left = right = parent = NULL;
     }
+
+    //explicit Node(std::string, int);
 };
 
-// Class to represent Red-Black Tree
 class RBTree
 {
 private:
-    Node *root;
+    Node * root;
 protected:
-    void rotateLeft(Node *&, Node *&);
-    void rotateRight(Node *&, Node *&);
-    void fixViolation(Node *&, Node *&);
+    void rotateLeft(Node *&);
+    void rotateRight(Node *&);
+    void fixInsertRBTree(Node *&);
+    void fixDeleteRBTree(Node *&);
+    void inorderBST(Node *&);
+    void preorderBST(Node *&);
+    int getColor(Node *&);
+    void setColor(Node *&, int);
+    Node *minValueNode(Node *&);
+    Node *maxValueNode(Node *&);
+    Node* insertBST(Node *&, Node *&);
+    Node* deleteBST(Node *&, std::string);
+    int getBlackHeight(Node *);
 public:
-    // Constructor
-    RBTree() { root = NULL; }
-    void insert(const int &size, const string &name);
+    RBTree();
+    void insertValue(std::string, int);
+    void deleteValue(std::string);
+    void merge(RBTree);
     void inorder();
-    void levelOrder();
+    void preorder();
+    Node getFile(std::string name);
+    std::list<Node> getFiles();
+    void clearTree();
 };
 
 
-
-#endif //FILETREE_RBTREE_H
+#endif //RED_BLACK_TREE_RBTREE_H
